@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
     var params = {
         TableName : table,
     };
-  
+
     dynamobDB.scan(params, function(err, data) {
         if (err) {
             console.error("Error al recuperar las peliculas: ", JSON.stringify(err, null, 2));
@@ -27,10 +27,10 @@ router.get('/', function (req, res) {
             res.send(data.Items);
         }
     });
-  
+
 });
-  
-router.post('/', function (req, res) {
+
+router.post('/', async function (req, res) {
 
     // Create client at function level to have right config
     const dynamobDB = new AWS.DynamoDB.DocumentClient();
