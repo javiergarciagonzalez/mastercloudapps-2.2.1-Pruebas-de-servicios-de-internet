@@ -40,7 +40,7 @@ describe('Unit tests', () => {
     });
 
     afterAll(() => {
-        AWS.DynamoDB.DocumentClient.mockReset()
+        AWS.DynamoDB.DocumentClient.mockReset();
     });
 
 
@@ -66,7 +66,6 @@ describe('Unit tests', () => {
     });
 
     test('Create a new film fails when a correct film is not provided', async () => {
-
         const response = await request.post('/api/films').send(null).expect(400);
 
         expect(response.statusCode).toBe(400);
