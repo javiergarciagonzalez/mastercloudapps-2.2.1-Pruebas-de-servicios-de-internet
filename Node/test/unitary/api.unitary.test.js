@@ -26,7 +26,6 @@ const getMockedMovie = (number) => mockedData.Items[number - 1];
 describe('Unit tests', () => {
 
     beforeAll(() => {
-
         const put = (params, cb) => {
             const error = Object.keys(params.Item).length <= 1 ? new Error('Error at mocked AWS module') : null;
             cb(error, params.Item);
